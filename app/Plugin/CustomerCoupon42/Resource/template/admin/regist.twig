@@ -1,0 +1,148 @@
+{% extends '@admin/default_frame.twig' %}
+
+{% block title %}{{ 'plugin_customer_coupon.admin.regist.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'plugin_customer_coupon.admin.regist.subtitle'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css', 'admin') }}">
+    <style type="text/css">
+        .col-sm-2 {
+            width: auto;
+        }
+    </style>
+{% endblock stylesheet %}
+
+{% block javascript %}
+    <script src="{{ asset('assets/js/vendor/moment.min.js', 'admin') }}"></script>
+    <script src="{{ asset('assets/js/vendor/moment-ja.js', 'admin') }}"></script>
+    <script src="{{ asset('assets/js/vendor/bootstrap-datetimepicker.min.js', 'admin') }}"></script>
+    <script>
+        $(function() {
+            // Kiểm tra logic ngày bắt đầu và ngày kết thúc
+            function validateDateRange() {
+                const fromDate = new Date($("#coupon_available_from_date").val());
+                const toDate = new Date($("#coupon_available_to_date").val());
+                if (toDate < fromDate) {
+                    alert("{{ 'plugin_customer_coupon.admin.regist.date_validation_error'|trans }}");
+                    return false;
+                }
+                return true;
+            }
+
+            $("#form1").on("submit", function(e) {
+                if (!validateDateRange()) {
+                    e.preventDefault();
+                }
+            });
+
+            // Xử lý sự kiện click radio
+            $("#coupon_discount_type_0, #coupon_discount_type_1").on("click", toggleDiscountInputs);
+
+            // Thiết lập datetimepicker cho input
+            const inputDate = document.createElement('input');
+            inputDate.setAttribute('type', 'date');
+            if (inputDate.type !== 'date') {
+                $('input[id$=_date]').datetimepicker({
+                    locale: 'ja',
+                    format: 'YYYY-MM-DD',
+                    useCurrent: false,
+                    showTodayButton: true
+                });
+            }
+        });
+    </script>
+{% endblock javascript %}
+
+{% block main %}
+    <form role="form" name="form1" id="form1" method="post" 
+        action="{{ path(id is defined ? 'CustomerCoupon42_admin_coupon_edit' : 'CustomerCoupon42_admin_coupon_create', 
+        {'id': coupon.coupon_id is not null ? coupon.coupon_id : ''}) }}">
+        <input type="hidden" name="mode" value="">
+        {{ form_widget(form._token) }}
+        <div class="c-contentsArea__cols">
+            <div class="c-contentsArea__primaryCol">
+                <div class="c-primaryCol">
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <span>{{ 'plugin_customer_coupon.admin.regist.header'|trans }}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    {{ form_label(form.coupon_name) }}
+                                    <span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span>
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.coupon_name) }}
+                                    {{ form_errors(form.coupon_name) }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3">{{ form_label(form.discount_price) }}
+                                     <span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span>
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.discount_price) }}
+                                    {{ form_errors(form.discount_price) }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3">{{ form_label(form.discount_rate) }}
+                                     <span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span>
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.discount_rate) }}
+                                    {{ form_errors(form.discount_rate) }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-3">{{ form_label(form.available_from_date) }}
+                                     <span class="badge bg-primary ms-1">{{ 'admin.common.required'|trans }}</span>
+                                </div>
+                                <div class="col mb-2">
+                                    <div class="row justify-content-start">
+                                        <div class="col-4">
+                                            {{ form_widget(form.available_from_date, {'attr': {'id': 'coupon_available_from_date'}}) }}
+                                            {{ form_errors(form.available_from_date) }}
+                                        </div>
+                                        <div class="col-auto text-center p-0"><span class="align-middle">～</span></div>
+                                        <div class="col-4">
+                                            {{ form_widget(form.available_to_date, {'attr': {'id': 'coupon_available_to_date'}}) }}
+                                            {{ form_errors(form.available_to_date) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-conversionArea">
+                        <div class="c-conversionArea__container">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-6">
+                                    <div class="c-conversionArea__leftBlockItem">
+                                        <a class="c-baseLink" href="{{ url('CustomerCoupon42_admin_coupon_index') }}">
+                                            <i class="fa fa-backward" aria-hidden="true"></i><span>{{ 'common.back'|trans }}</span></a>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row align-items-center justify-content-end">
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn btn-ec-conversion">{{ 'common.registration'|trans }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

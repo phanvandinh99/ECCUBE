@@ -1,0 +1,38 @@
+# the coupon index page
+plugin_customer_coupon.admin.index.title: クーポン管理
+plugin_customer_coupon.admin.index.subtitle: クーポン内容設定
+plugin_customer_coupon.admin.index.number: <strong>%number% 件</strong> が該当しました
+
+plugin_customer_coupon.admin.index.col01: クーポンID
+plugin_customer_coupon.admin.index.col02: クーポン名
+plugin_customer_coupon.admin.index.col03: 最低金額
+plugin_customer_coupon.admin.index.col04: 割引率
+plugin_customer_coupon.admin.index.col05: 開始時間 ~ 終了時間
+plugin_customer_coupon.admin.index.col06: 削除
+
+
+plugin_customer_coupon.admin.index.delete__confirm_title: クーポンを削除します
+plugin_customer_coupon.admin.index.delete__confirm_message: クーポンを削除してよろしいですか？
+plugin_customer_coupon.admin.coupon_member.yes: 会員のみ
+plugin_customer_coupon.admin.coupon_member.no: なし
+plugin_customer_coupon.admin.coupon_type.product: 商品
+plugin_customer_coupon.admin.coupon_type.category: カテゴリ
+plugin_customer_coupon.admin.coupon_type.all: 全商品
+plugin_customer_coupon.admin.index.create_button: クーポンを新規登録
+plugin_customer_coupon.admin.delete.success: クーポンを削除しました。
+plugin_customer_coupon.admin.delete.error: クーポンの削除に失敗しました。
+
+# register page
+plugin_customer_coupon.admin.notfound: クーポンが存在しません。
+plugin_customer_coupon.admin.regist.title: クーポン管理
+plugin_customer_coupon.admin.regist.subtitle: クーポン内容設定
+plugin_customer_coupon.admin.regist.header: クーポン情報
+plugin_customer_coupon.admin.label.coupon_name: クーポン名
+plugin_customer_coupon.admin.label.discount_price: 最低金額
+plugin_customer_coupon.admin.label.available_from_date : 開始時間
+plugin_customer_coupon.admin.label.available_to_date : 開始時間
+plugin_customer_coupon.admin.label.enable_flag : 画面
+plugin_customer_coupon.admin.regist.success: クーポンを登録しました。
+plugin_customer_coupon.admin.regist.discount_price.note: 合計金額から設定金額を値引きします。
+plugin_customer_coupon.admin.regist.discount_rate.note: 対象商品の合計金額から設定した率を値引きします。
+plugin_customer_coupon.admin.regist.date_validation_error: 開始日は終了日より前にする必要があります。
