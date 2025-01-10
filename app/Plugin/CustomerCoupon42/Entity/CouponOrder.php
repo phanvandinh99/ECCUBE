@@ -79,5 +79,148 @@ class CouponOrder extends AbstractEntity
      */
     private $update_date;
 
-    // Getters and Setters...
+    // Getters and Setters
+
+    public function getCouponOrderId(): ?int
+    {
+        return $this->coupon_order_id;
+    }
+
+    public function setCouponOrderId(int $coupon_order_id): self
+    {
+        $this->coupon_order_id = $coupon_order_id;
+        return $this;
+    }
+
+    public function getCoupon(): ?Coupon
+    {
+        return $this->coupon;
+    }
+
+    public function setCoupon(Coupon $coupon): self
+    {
+        $this->coupon = $coupon;
+        return $this;
+    }
+
+    public function getCustomerId(): ?int
+    {
+        return $this->customer_id;
+    }
+
+    public function setCustomerId(int $customer_id): self
+    {
+        $this->customer_id = $customer_id;
+        return $this;
+    }
+
+    public function getCouponCd(): ?string
+    {
+        return $this->coupon_cd;
+    }
+
+    public function setCouponCd(string $coupon_cd): self
+    {
+        $this->coupon_cd = $coupon_cd;
+        return $this;
+    }
+
+    public function getCouponName(): ?string
+    {
+        return $this->coupon_name;
+    }
+
+    public function setCouponName(string $coupon_name): self
+    {
+        $this->coupon_name = $coupon_name;
+        return $this;
+    }
+
+    public function getAvailableFromDate(): ?\DateTimeInterface
+    {
+        return $this->available_from_date;
+    }
+
+    public function setAvailableFromDate(?\DateTimeInterface $available_from_date): self
+    {
+        $this->available_from_date = $available_from_date;
+        return $this;
+    }
+
+    public function getAvailableToDate(): ?\DateTimeInterface
+    {
+        return $this->available_to_date;
+    }
+
+    public function setAvailableToDate(?\DateTimeInterface $available_to_date): self
+    {
+        $this->available_to_date = $available_to_date;
+        return $this;
+    }
+
+    public function getPreOrderId(): ?int
+    {
+        return $this->pre_order_id;
+    }
+
+    public function setPreOrderId(?int $pre_order_id): self
+    {
+        $this->pre_order_id = $pre_order_id;
+        return $this;
+    }
+
+    public function getOrderDate(): ?\DateTimeInterface
+    {
+        return $this->order_date;
+    }
+
+    public function setOrderDate(?\DateTimeInterface $order_date): self
+    {
+        $this->order_date = $order_date;
+        return $this;
+    }
+
+    public function getDiscount(): ?string
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?string $discount): self
+    {
+        $this->discount = $discount;
+        return $this;
+    }
+
+    public function getEnableFlag(): ?bool
+    {
+        return $this->enable_flag;
+    }
+
+    public function setEnableFlag(bool $enable_flag): self
+    {
+        $this->enable_flag = $enable_flag;
+        return $this;
+    }
+
+    public function getCreateDate(): ?\DateTimeInterface
+    {
+        return $this->create_date;
+    }
+
+    public function setCreateDate(?\DateTimeInterface $create_date): self
+    {
+        $this->create_date = $create_date;
+        return $this;
+    }
+
+    public function getUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(?\DateTimeInterface $update_date): self
+    {
+        $this->update_date = $update_date;
+        return $this;
+    }
 }
