@@ -249,7 +249,7 @@ class ShoppingController extends AbstractShoppingController
 
             try {
                 // リダイレクト先のチェック.
-                $pattern = '/^'.preg_quote($request->getBasePath(), '/').'/';
+                $pattern = '/^' . preg_quote($request->getBasePath(), '/') . '/';
                 $redirectTo = preg_replace($pattern, '', $redirectTo);
                 $result = $router->match($redirectTo);
                 // パラメータのみ抽出
@@ -855,17 +855,26 @@ class ShoppingController extends AbstractShoppingController
 
             // forwardすることも可能.
             if ($dispatcher->isForward()) {
-                log_info('[注文処理] PaymentMethod::applyによりForwardします.',
-                    [$dispatcher->getRoute(), $dispatcher->getPathParameters(), $dispatcher->getQueryParameters()]);
+                log_info(
+                    '[注文処理] PaymentMethod::applyによりForwardします.',
+                    [$dispatcher->getRoute(), $dispatcher->getPathParameters(), $dispatcher->getQueryParameters()]
+                );
 
-                return $this->forwardToRoute($dispatcher->getRoute(), $dispatcher->getPathParameters(),
-                    $dispatcher->getQueryParameters());
+                return $this->forwardToRoute(
+                    $dispatcher->getRoute(),
+                    $dispatcher->getPathParameters(),
+                    $dispatcher->getQueryParameters()
+                );
             } else {
-                log_info('[注文処理] PaymentMethod::applyによりリダイレクトします.',
-                    [$dispatcher->getRoute(), $dispatcher->getPathParameters(), $dispatcher->getQueryParameters()]);
+                log_info(
+                    '[注文処理] PaymentMethod::applyによりリダイレクトします.',
+                    [$dispatcher->getRoute(), $dispatcher->getPathParameters(), $dispatcher->getQueryParameters()]
+                );
 
-                return $this->redirectToRoute($dispatcher->getRoute(),
-                    array_merge($dispatcher->getPathParameters(), $dispatcher->getQueryParameters()));
+                return $this->redirectToRoute(
+                    $dispatcher->getRoute(),
+                    array_merge($dispatcher->getPathParameters(), $dispatcher->getQueryParameters())
+                );
             }
         }
     }
