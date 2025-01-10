@@ -6,9 +6,10 @@ plugin_customer_coupon.admin.index.number: <strong>%number% 件</strong> が該�
 plugin_customer_coupon.admin.index.col01: クーポンID
 plugin_customer_coupon.admin.index.col02: クーポン名
 plugin_customer_coupon.admin.index.col03: 最低金額
-plugin_customer_coupon.admin.index.col04: 割引率
-plugin_customer_coupon.admin.index.col05: 開始時間 ~ 終了時間
-plugin_customer_coupon.admin.index.col06: 削除
+plugin_customer_coupon.admin.index.col04: 割引率 (%)
+plugin_customer_coupon.admin.index.col05: 有効期間
+plugin_customer_coupon.admin.index.col06: 編集
+plugin_customer_coupon.admin.index.col07: 削除
 
 
 plugin_customer_coupon.admin.index.delete__confirm_title: クーポンを削除します
